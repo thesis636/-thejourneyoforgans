@@ -5,9 +5,52 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #262626;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+@font-face {
+  font-family: Plump;
+  font-weight: 400;
+  src: url('./font/Plump.ttf') format("truetype")
+}
+
+@font-face {
+  font-family: Plump;
+  font-weight: 700;
+  src: url('./font/Plump.ttf') format("truetype")
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+div,
+code,
+input,
+select,
+option,
+button,
+textarea {
+  font-family: Plump
+}
+
+input,
+select,
+option,textarea {
+  font-size: 20px;
+}
+
+button {
+  border: 0;
+  background-color: transparent;
+  font-size: 30px;
 }
