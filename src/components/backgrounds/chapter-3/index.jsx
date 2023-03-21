@@ -15,6 +15,7 @@ export function BackgroundChapter3(props) {
 
   return (
     <div
+    className="lazy-background"
       style={{
         display: backgroundReducer.step === '3' ? "flex" : "none",
         width: "100%",

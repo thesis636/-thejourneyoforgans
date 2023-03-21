@@ -5,6 +5,7 @@ export function BackgroundChapter0(props) {
   const backgroundReducer = useSelector((state) => state.backgroundReducer);
   return (
     <div
+      className="lazy-background"
       style={{
         display: backgroundReducer.step === "0" ? "flex" : "none",
         width: "100%",

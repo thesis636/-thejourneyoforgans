@@ -5,14 +5,15 @@ export function BackgroundChapter6(props) {
   const backgroundReducer = useSelector((state) => state.backgroundReducer);
   return (
     <div
+      className="lazy-background"
       style={{
-        display: backgroundReducer.step === '6' ? "flex" : "none",
+        display: backgroundReducer.step === "6" ? "flex" : "none",
         width: "100%",
         height: "100%",
         justifyContent: "center",
         alignItems: "center",
         animation:
-          backgroundReducer.step === '6' &&
+          backgroundReducer.step === "6" &&
           "keyframe-background-6 2s cubic-bezier(1, -1, 0, 2) infinite alternate",
       }}
     >

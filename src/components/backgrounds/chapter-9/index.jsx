@@ -5,9 +5,9 @@ export function BackgroundChapter9(props) {
   const backgroundReducer = useSelector((state) => state.backgroundReducer);
   const dispatch = useDispatch();
   React.useEffect(() => {
-    if (backgroundReducer.step === '9') {
+    if (backgroundReducer.step === "9") {
       setTimeout(() => {
-        dispatch({ type: "SET_BACKGROUND", payload: '10' });
+        dispatch({ type: "SET_BACKGROUND", payload: "10" });
         // dispatch({ type: "SET_LAYOUT", payload: '4' });
       }, 4000);
     }
@@ -15,14 +15,15 @@ export function BackgroundChapter9(props) {
 
   return (
     <div
+      className="lazy-background"
       style={{
-        display: backgroundReducer.step === '9' ? "flex" : "none",
+        display: backgroundReducer.step === "9" ? "flex" : "none",
         width: "100%",
         height: "100%",
         justifyContent: "center",
         alignItems: "center",
         animation:
-          backgroundReducer.step === '9' &&
+          backgroundReducer.step === "9" &&
           "keyframe-background-8 4s cubic-bezier(1, -1, 0, 2)  infinite alternate",
       }}
     >
