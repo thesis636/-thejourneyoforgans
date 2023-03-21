@@ -47,10 +47,12 @@ input,
 select,
 option,textarea {
   font-size: 20px;
+  color: black;
 }
 
 button {
   border: 0;
   background-color: transparent;
   font-size: 30px;
+  color: black;
 }

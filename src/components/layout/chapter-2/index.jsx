@@ -93,7 +93,8 @@ export function LayoutChapter2() {
                 }}
               >
                 <option value="1">ชาย</option>
-                <option value="2">หญิง</option>
+                <option value="3">หญิง</option>
+                <option value="3">LGBTQ+</option>
               </select>
             </div>
           </div>
