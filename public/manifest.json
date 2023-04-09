@@ -18,6 +18,13 @@
       "sizes": "512x512"
     }
   ],
+  "images":[
+    {
+      "src": "image/chapter1-2-3/1.jpeg",
+      "type": "image/*",
+      "sizes": "512x512"
+    }
+  ],
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",

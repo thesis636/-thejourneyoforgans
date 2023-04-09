@@ -8,8 +8,8 @@ import reportWebVitals from "./reportWebVitals";
 import rootReducer from "./reducers/rootReducer";
 import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
-import "./animation.css";
-
+// import "./animation.css";
+// import "./load-image-bg.css";
 // import "./components/backgrounds/chapter-0/style.css"
 // import "./components/backgrounds/chapter-1/style.css"
 // import "./components/backgrounds/chapter-2/style.css"
@@ -30,10 +30,10 @@ root.render(
 );
 
 console.time();
-window.addEventListener("DOMContentLoaded", (event) => {
-  console.timeEnd()
-  console.log("DOM fully loaded and parsed");
-});
+// window.addEventListener("DOMContentLoaded", (event) => {
+//   console.timeEnd()
+//   console.log("DOM fully loaded and parsed");
+// });
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals

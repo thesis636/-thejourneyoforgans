@@ -40,7 +40,11 @@ select,
 option,
 button,
 textarea {
-  font-family: Plump
+  font-family: Plump;
+  text-shadow: -1px 1px 0 #fff,
+  1px 1px 0 #fff,
+ 1px -1px 0 #fff,
+-1px -1px 0 #fff;
 }
 
 input,
@@ -48,6 +52,12 @@ select,
 option,textarea {
   font-size: 20px;
   color: black;
+}
+label{
+  font-size: 40px;
+}
+p {
+  font-size: 40px;
 }
 
 button {
