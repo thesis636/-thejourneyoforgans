@@ -111,42 +111,44 @@ export function MessageChapter10() {
             defaultValue={dataReducer.chapter10.data.message}
           />
         </div>
-        <div
-          style={{
-            padding: 15,
-          }}
-        >
-          {dataReducer.chapter10.buttons.map((btn, key) => (
-            <button
-              key={key}
-              style={{
-                cursor: "pointer",
-              }}
-              onClick={() => {
-                dispatch({
-                  type: btn.onClick.setBackground.type,
-                  payload: btn.onClick.setBackground.payload,
-                });
-                dispatch({
-                  type: btn.onClick.setMessage.type,
-                  payload: btn.onClick.setMessage.payload,
-                });
-                dispatch({
-                  type: btn.onClick.setDataChapter.type,
-                  payload: {
-                    ...dataReducer.chapter10,
-                    data: {
-                      ...dataReducer.chapter10.data,
-                      message: message,
+        {message && (
+          <div
+            style={{
+              padding: 15,
+            }}
+          >
+            {dataReducer.chapter10.buttons.map((btn, key) => (
+              <button
+                key={key}
+                style={{
+                  cursor: "pointer",
+                }}
+                onClick={() => {
+                  dispatch({
+                    type: btn.onClick.setBackground.type,
+                    payload: btn.onClick.setBackground.payload,
+                  });
+                  dispatch({
+                    type: btn.onClick.setMessage.type,
+                    payload: btn.onClick.setMessage.payload,
+                  });
+                  dispatch({
+                    type: btn.onClick.setDataChapter.type,
+                    payload: {
+                      ...dataReducer.chapter10,
+                      data: {
+                        ...dataReducer.chapter10.data,
+                        message: message,
+                      },
                     },
-                  },
-                });
-              }}
-            >
-              {btn.title}
-            </button>
-          ))}
-        </div>
+                  });
+                }}
+              >
+                {btn.title}
+              </button>
+            ))}
+          </div>
+        )}
       </div>
     </MessageAnimetion>
   );
