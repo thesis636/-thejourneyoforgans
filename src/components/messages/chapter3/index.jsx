@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from "react-redux";
 import icon from "./img/IMG_4571.PNG";
 import styled from "styled-components";
 import { chapter4ImageAction } from "../../../actions/chapter4/image.action";
+import { collection, addDoc } from "firebase/firestore"; 
+import { db } from "../../../firebase.config";
 
 const MessageAnimetion = styled.div`
   display: ${(props) => (props.chapter === "3" ? "block" : "none")};
@@ -251,6 +253,14 @@ export function MessageChapter3() {
               dispatch({
                 type: btn.onClick.setMessage.type,
                 payload: btn.onClick.setMessage.payload,
+              });
+
+              addDoc(collection(db, "users"), {
+                name: dataReducer.chapter3.data.name,
+                age: dataReducer.chapter3.data.age,
+                gender: dataReducer.chapter3.data.gender
+              }).then(docRef => {
+                console.log("Document written with ID: ", docRef.id);
               });
             }}
           >
