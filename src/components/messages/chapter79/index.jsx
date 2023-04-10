@@ -94,6 +94,7 @@ export function MessageChapter79() {
                 borderRadius: "10px",
                 margin: "5px",
                 cursor: "pointer",
+                boxShadow: "0px 2px 5px 0px rgba(0, 0, 0, 0.2)"
               }}
               onClick={() => {
                 dispatch({
