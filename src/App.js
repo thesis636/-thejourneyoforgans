@@ -261,37 +261,46 @@ function App() {
     const data = [];
     var c = 0;
     fileVideos.map((obj, key, arr) => {
-      axios({
-        method: "GET",
-        url: obj.file,
-        responseType: "blob",
-        headers: {
-          "Content-Type": "video/mp4",
-        },
-        onDownloadProgress: (progressEvent) => {
-          const currentProgress = Math.round(
-            (progressEvent.loaded * 100) / progressEvent.total
-          );
-          setProgress(currentProgress);
-          if (currentProgress === 100) {
-            c += 1;
-            setCountVideo(c);
-          }
-        },
-      }).then((res) => {
-        console.log(res.data);
-        var urlBlob = URL.createObjectURL(res.data);
-        data.push({
-          name: obj.name,
-          urlBlob: urlBlob,
-          url: obj.file,
-        });
+      // axios({
+      //   method: "GET",
+      //   url: obj.file,
+      //   responseType: "blob",
+      //   headers: {
+      //     "Content-Type": "video/mp4",
+      //   },
+      //   onDownloadProgress: (progressEvent) => {
+      //     const currentProgress = Math.round(
+      //       (progressEvent.loaded * 100) / progressEvent.total
+      //     );
+      //     setProgress(currentProgress);
+      //     if (currentProgress === 100) {
+      //       c += 1;
+      //       setCountVideo(c);
+      //     }
+      //   },
+      // }).then((res) => {
+      //   console.log(res.data);
+      //   var urlBlob = URL.createObjectURL(res.data);
+      //   data.push({
+      //     name: obj.name,
+      //     urlBlob: urlBlob,
+      //     url: obj.file,
+      //   });
 
-        if (key === arr.length - 1) {
-          setUrlVideos(data);
-        }
-        return res.data;
+      //   if (key === arr.length - 1) {
+      //     setUrlVideos(data);
+      //   }
+      //   return res.data;
+      // });
+      data.push({
+        name: obj.name,
+        urlBlob: obj.file,
+        url: obj.file,
       });
+
+      if (key === arr.length - 1) {
+        setUrlVideos(data);
+      }
     });
   }, [fileVideos]);
 
@@ -299,41 +308,55 @@ function App() {
     const data = [];
     var c = 0;
     fileAudios.map((obj, key, arr) => {
-      axios({
-        method: "GET",
-        url: obj.file,
-        responseType: "blob",
-        headers: {
-          "Content-Type": "audio/mpeg",
-        },
-        onDownloadProgress: (progressEvent) => {
-          const currentProgress = Math.round(
-            (progressEvent.loaded * 100) / progressEvent.total
-          );
-          setProgress(currentProgress);
-          if (currentProgress === 100) {
-            c += 1;
-            setCountAudio(c);
-          }
-        },
-      }).then((res) => {
-        var urlBlob = URL.createObjectURL(res.data);
-        data.push({
-          name: obj.name,
-          urlBlob: urlBlob,
-          url: obj.file,
-        });
+      // axios({
+      //   method: "GET",
+      //   url: obj.file,
+      //   responseType: "blob",
+      //   headers: {
+      //     "Content-Type": "audio/mpeg",
+      //   },
+      //   onDownloadProgress: (progressEvent) => {
+      //     const currentProgress = Math.round(
+      //       (progressEvent.loaded * 100) / progressEvent.total
+      //     );
+      //     setProgress(currentProgress);
+      //     if (currentProgress === 100) {
+      //       c += 1;
+      //       setCountAudio(c);
+      //     }
+      //   },
+      // }).then((res) => {
+      //   var urlBlob = URL.createObjectURL(res.data);
+      //   data.push({
+      //     name: obj.name,
+      //     urlBlob: urlBlob,
+      //     url: obj.file,
+      //   });
 
-        if (key === arr.length - 1) {
-          setUrlAudios(data);
-        }
-        return res.data;
+      //   if (key === arr.length - 1) {
+      //     setUrlAudios(data);
+      //   }
+      //   return res.data;
+      // });
+
+      data.push({
+        name: obj.name,
+        urlBlob: obj.file,
+        url: obj.file,
       });
+
+      if (key === arr.length - 1) {
+        setUrlAudios(data);
+      }
     });
   }, [fileAudios]);
   return (
     <>
       {urlVideos.length === fileVideos.length &&
+        urlAudios.length === fileAudios.length && (
+          <AllPage videos={urlVideos} audios={urlAudios}></AllPage>
+        )}
+      {/* {urlVideos.length === fileVideos.length &&
       urlAudios.length === fileAudios.length ? (
         <AllPage videos={urlVideos} audios={urlAudios}></AllPage>
       ) : (
@@ -345,7 +368,7 @@ function App() {
             maxAudio={fileAudios.length}
           ></LoaderParent>
         </React.Fragment>
-      )}
+      )} */}
     </>
   );
 }

@@ -6,6 +6,7 @@ import Scene77 from "../components/Scene77";
 import Scene78 from "../components/Scene78";
 import Scene79 from "../components/Scene79";
 import Scene80 from "../components/Scene80";
+import Scene81 from "../components/Scene81";
 
 export default function Scene77_81Page({ getVideos }) {
   const [scene, setScene] = React.useState("77");
@@ -22,6 +23,7 @@ export default function Scene77_81Page({ getVideos }) {
   const scene78El = React.useRef(null);
   const scene79El = React.useRef(null);
   const scene80El = React.useRef(null);
+  const scene81El = React.useRef(null);
 
   React.useEffect(() => {
     containerEl.current.style.animation =
@@ -70,6 +72,16 @@ export default function Scene77_81Page({ getVideos }) {
     }
   }, [scene, scene80El.current]);
 
+  React.useEffect(() => {
+    if (scene === "81") {
+      if (scene81El.current) {
+        scene81El.current.style.animation =
+          "1s ease-in 0s 1 normal both running fadeIn";
+        setActionClick(true);
+      }
+    }
+  }, [scene, scene81El.current]);
+
   return (
     <div
       ref={containerEl}
@@ -93,6 +105,35 @@ export default function Scene77_81Page({ getVideos }) {
               "2s ease-out 0s 1 normal forwards running fadeOut";
             setTimeout(() => {
               setScene("79");
+            }, 2000);
+          }
+        }
+
+        if (scene === "80") {
+          if (actionClick) {
+            setActionClick(false);
+            scene80El.current.style.animation =
+              "2s ease-out 0s 1 normal forwards running fadeOut";
+            setTimeout(() => {
+              setScene("81");
+            }, 2000);
+          }
+        }
+
+        if (scene === "81") {
+          if (actionClick) {
+            setActionClick(false);
+            scene81El.current.style.animation =
+              "2s ease-out 0s 1 normal forwards running fadeOut";
+            containerEl.current.style.animation =
+              "2s ease-in 2s 1 normal both running bgFadeOut";
+
+            setTimeout(() => {
+              setTimeout(() => {
+                setTimeout(() => {
+                  navigate(`/scene82-83`);
+                }, 500);
+              }, 2000);
             }, 2000);
           }
         }
@@ -145,8 +186,9 @@ export default function Scene77_81Page({ getVideos }) {
           }}
         ></Scene79>
       )}
-      {scene === "80" && (
-        <Scene80 ref={scene80El} getSelectMessage={selectMessage}></Scene80>
+      {scene === "80" && <Scene80 ref={scene80El}></Scene80>}
+      {scene === "81" && (
+        <Scene81 ref={scene81El} getSelectMessage={selectMessage}></Scene81>
       )}
 
       {(scene === "77" || scene === "78" || scene === "79") && (
@@ -163,29 +205,15 @@ export default function Scene77_81Page({ getVideos }) {
         ></video>
       )}
 
-      {scene === "80" && (
+      {(scene === "80" || scene === "81") && (
         <video
           ref={video80_81El}
           autoPlay
+          loop
           className="h-full top-0 w-full object-fill -z-10 absolute "
           playsInline
           muted
           src={getVideos.find((video) => video.name === "video80-81").urlBlob}
-          onCanPlay={(event) => {
-            if (scene === "80") {
-              setTimeout(() => {
-                scene80El.current.style.animation =
-                  "2s ease-out 0s 1 normal forwards running fadeOut";
-                containerEl.current.style.animation =
-                  "2s ease-in 2s 1 normal both running bgFadeOut";
-              }, event.target.duration * 600);
-              setTimeout(() => {
-                setTimeout(() => {
-                  navigate(`/scene82-83`);
-                }, 500);
-              }, event.target.duration * 1000);
-            }
-          }}
         ></video>
       )}
     </div>

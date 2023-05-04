@@ -4,7 +4,7 @@ const Scene49 = React.forwardRef((props, ref) => {
   return (
     <p
       ref={ref}
-      className="centered-paragraph text-white top-52"
+      className="centered-paragraph text-white top-20"
       style={{ opacity: 0 }}
     >
       การปลูกถ่ายอวัยวะ

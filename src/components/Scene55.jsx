@@ -4,7 +4,7 @@ const Scene55 = React.forwardRef((props, ref) => {
   return (
     <p
       ref={ref}
-      className="centered-paragraph text-black top-28"
+      className="centered-paragraph text-black top-10"
       style={{ opacity: 0 }}
     >
       ซึ่ง 1 ร่างกายที่บริจาคอวัยวะ

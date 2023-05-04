@@ -10,7 +10,7 @@ const Scene42 = React.forwardRef((props, ref) => {
   return (
     <div
       ref={ref}
-      className="relative top-24 text-center"
+      className="relative top-3 text-center"
       style={{ opacity: 0 }}
     >
       <div

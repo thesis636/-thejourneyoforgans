@@ -51,85 +51,77 @@ export default function AllPage({ videos, audios }) {
   const audioPeopleEl = React.useRef(null);
   const audioSadEl = React.useRef(null);
 
-  React.useEffect(() => {
-    if (audioBGEl.current) {
-      if (audioBGPlay) {
-        audioBGEl.current.play();
-      }
-    }
-  }, [audioBGEl.current, audioBGPlay]);
+  // React.useEffect(() => {
+  //   if (audioAlarmEl.current) {
+  //     if (audioAlarmPlay) {
+  //       audioAlarmEl.current.play();
+  //     }
+  //   }
+  // }, [audioAlarmEl.current, audioAlarmPlay]);
 
-  React.useEffect(() => {
-    if (audioAlarmEl.current) {
-      if (audioAlarmPlay) {
-        audioAlarmEl.current.play();
-      }
-    }
-  }, [audioAlarmEl.current, audioAlarmPlay]);
+  // React.useEffect(() => {
+  //   if (audioOpenDoorEl.current) {
+  //     if (audioOpenDoorPlay) {
+  //       audioOpenDoorEl.current.play();
+  //     }
+  //   }
+  // }, [audioOpenDoorEl.current, audioOpenDoorPlay]);
 
-  React.useEffect(() => {
-    if (audioOpenDoorEl.current) {
-      if (audioOpenDoorPlay) {
-        audioOpenDoorEl.current.play();
-      }
-    }
-  }, [audioOpenDoorEl.current, audioOpenDoorPlay]);
+  // React.useEffect(() => {
+  //   if (audioBTSEl.current) {
+  //     if (audioBTSPlay) {
+  //       audioBTSEl.current.play();
+  //     }
+  //   }
+  // }, [audioBTSEl.current, audioBTSPlay]);
 
-  React.useEffect(() => {
-    if (audioBTSEl.current) {
-      if (audioBTSPlay) {
-        audioBTSEl.current.play();
-      }
-    }
-  }, [audioBTSEl.current, audioBTSPlay]);
+  // React.useEffect(() => {
+  //   if (audioMotorcycleEl.current) {
+  //     if (audioMotorcyclePlay) {
+  //       audioMotorcycleEl.current.play();
+  //     }
+  //   }
+  // }, [audioMotorcycleEl.current, audioMotorcyclePlay]);
 
-  React.useEffect(() => {
-    if (audioMotorcycleEl.current) {
-      if (audioMotorcyclePlay) {
-        audioMotorcycleEl.current.play();
-      }
-    }
-  }, [audioMotorcycleEl.current, audioMotorcyclePlay]);
+  // React.useEffect(() => {
+  //   if (audioHitByCarEl.current) {
+  //     if (audioHitByCarPlay) {
+  //       audioHitByCarEl.current.play();
+  //     }
+  //   }
+  // }, [audioHitByCarEl.current, audioHitByCarPlay]);
 
-  React.useEffect(() => {
-    if (audioHitByCarEl.current) {
-      if (audioHitByCarPlay) {
-        audioHitByCarEl.current.play();
-      }
-    }
-  }, [audioHitByCarEl.current, audioHitByCarPlay]);
+  // React.useEffect(() => {
+  //   if (audioCarsEl.current) {
+  //     if (audioCarsPlay) {
+  //       audioCarsEl.current.play();
+  //     }
+  //   }
+  // }, [audioCarsEl.current, audioCarsPlay]);
 
-  React.useEffect(() => {
-    if (audioCarsEl.current) {
-      if (audioCarsPlay) {
-        audioCarsEl.current.play();
-      }
-    }
-  }, [audioCarsEl.current, audioCarsPlay]);
+  // React.useEffect(() => {
+  //   if (audioAmbuEl.current) {
+  //     if (audioAmbuPlay) {
+  //       audioAmbuEl.current.play();
+  //     }
+  //   }
+  // }, [audioAmbuEl.current, audioAmbuPlay]);
 
-  React.useEffect(() => {
-    if (audioAmbuEl.current) {
-      if (audioAmbuPlay) {
-        audioAmbuEl.current.play();
-      }
-    }
-  }, [audioAmbuEl.current, audioAmbuPlay]);
+  // React.useEffect(() => {
+  //   if (audioPeopleEl.current) {
+  //     if (audioPeoplePlay) {
+  //       audioPeopleEl.current.play();
+  //     }
+  //   }
+  // }, [audioPeopleEl.current, audioPeoplePlay]);
 
-  React.useEffect(() => {
-    if (audioPeopleEl.current) {
-      if (audioPeoplePlay) {
-        audioPeopleEl.current.play();
-      }
-    }
-  }, [audioPeopleEl.current, audioPeoplePlay]);
-
-  React.useEffect(() => {
-    if (audioSadEl.current) {
-      if (audioSadPlay) {
-        audioSadEl.current.play();
-      }
-    }
-  }, [audioSadEl.current, audioSadPlay]);
+  // React.useEffect(() => {
+  //   if (audioSadEl.current) {
+  //     if (audioSadPlay) {
+  //       audioSadEl.current.play();
+  //     }
+  //   }
+  // }, [audioSadEl.current, audioSadPlay]);
 
   return (
     <Routes>
@@ -138,15 +130,21 @@ export default function AllPage({ videos, audios }) {
         element={
           <div className="max-w-[515px] h-full mx-auto relative">
             {audioBGPlay && (
-              <audio
+              <video
+                controls
                 ref={audioBGEl}
                 autoPlay
-                loop
                 src={audios.find((audio) => audio.name === "audio_bg").urlBlob}
-              ></audio>
+                style={{
+                  display: "none",
+                }}
+                playsInline
+                loop
+              ></video>
             )}
             {audioAlarmPlay && (
-              <audio
+              <video
+                controls
                 ref={audioAlarmEl}
                 autoPlay
                 onCanPlay={(event) => {
@@ -157,10 +155,15 @@ export default function AllPage({ videos, audios }) {
                 src={
                   audios.find((audio) => audio.name === "audio_alarm").urlBlob
                 }
-              ></audio>
+                style={{
+                  display: "none",
+                }}
+                playsInline
+              ></video>
             )}
             {audioOpenDoorPlay && (
-              <audio
+              <video
+                controls
                 ref={audioOpenDoorEl}
                 autoPlay
                 onCanPlay={(event) => {
@@ -172,10 +175,15 @@ export default function AllPage({ videos, audios }) {
                   audios.find((audio) => audio.name === "audio_openDoor")
                     .urlBlob
                 }
-              ></audio>
+                style={{
+                  display: "none",
+                }}
+                playsInline
+              ></video>
             )}
             {audioBTSPlay && (
-              <audio
+              <video
+                controls
                 ref={audioBTSEl}
                 autoPlay
                 onCanPlay={(event) => {
@@ -184,10 +192,15 @@ export default function AllPage({ videos, audios }) {
                   }, event.target.duration * 1000);
                 }}
                 src={audios.find((audio) => audio.name === "audio_bts").urlBlob}
-              ></audio>
+                style={{
+                  display: "none",
+                }}
+                playsInline
+              ></video>
             )}
             {audioMotorcyclePlay && (
-              <audio
+              <video
+                controls
                 ref={audioMotorcycleEl}
                 autoPlay
                 onCanPlay={(event) => {
@@ -199,10 +212,15 @@ export default function AllPage({ videos, audios }) {
                   audios.find((audio) => audio.name === "audio_motorcycle")
                     .urlBlob
                 }
-              ></audio>
+                style={{
+                  display: "none",
+                }}
+                playsInline
+              ></video>
             )}
             {audioHitByCarPlay && (
-              <audio
+              <video
+                controls
                 ref={audioHitByCarEl}
                 autoPlay
                 onCanPlay={(event) => {
@@ -214,45 +232,69 @@ export default function AllPage({ videos, audios }) {
                   audios.find((audio) => audio.name === "audio_hitByCar")
                     .urlBlob
                 }
-              ></audio>
+                style={{
+                  display: "none",
+                }}
+                playsInline
+              ></video>
             )}
             {audioCarsPlay && (
-              <audio
+              <video
+                controls
                 ref={audioCarsEl}
                 autoPlay
                 loop
                 src={
                   audios.find((audio) => audio.name === "audio_cars").urlBlob
                 }
-              ></audio>
+                style={{
+                  display: "none",
+                }}
+                playsInline
+              ></video>
             )}
             {audioAmbuPlay && (
-              <audio
+              <video
+                controls
                 ref={audioAmbuEl}
                 autoPlay
                 loop
                 src={
                   audios.find((audio) => audio.name === "audio_ambu").urlBlob
                 }
-              ></audio>
+                style={{
+                  display: "none",
+                }}
+                playsInline
+              ></video>
             )}
             {audioPeoplePlay && (
-              <audio
+              <video
+                controls
                 ref={audioPeopleEl}
                 autoPlay
                 loop
                 src={
                   audios.find((audio) => audio.name === "audio_people").urlBlob
                 }
-              ></audio>
+                style={{
+                  display: "none",
+                }}
+                playsInline
+              ></video>
             )}
             {audioSadPlay && (
-              <audio
+              <video
+                controls
                 ref={audioSadEl}
                 autoPlay
                 loop
                 src={audios.find((audio) => audio.name === "audio_sad").urlBlob}
-              ></audio>
+                style={{
+                  display: "none",
+                }}
+                playsInline
+              ></video>
             )}
             <Outlet></Outlet>
           </div>
