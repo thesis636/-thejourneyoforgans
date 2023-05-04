@@ -194,43 +194,43 @@ const fileVideos = [
 const fileAudios = [
   {
     name: "audio_alarm",
-    file: require("./audios/alarm.mp3"),
+    file: require("./audios/alarm.mp4"),
   },
   {
     name: "audio_ambu",
-    file: require("./audios/ambu.mp3"),
+    file: require("./audios/ambu.mp4"),
   },
   {
     name: "audio_bg",
-    file: require("./audios/bg.mp3"),
+    file: require("./audios/bg.mp4"),
   },
   {
     name: "audio_bts",
-    file: require("./audios/bts.mp3"),
+    file: require("./audios/bts.mp4"),
   },
   {
     name: "audio_cars",
-    file: require("./audios/cars.mp3"),
+    file: require("./audios/cars.mp4"),
   },
   {
     name: "audio_hitByCar",
-    file: require("./audios/hit-by-car.mp3"),
+    file: require("./audios/hit-by-car.mp4"),
   },
   {
     name: "audio_motorcycle",
-    file: require("./audios/motorcycle.mp3"),
+    file: require("./audios/motorcycle.mp4"),
   },
   {
     name: "audio_openDoor",
-    file: require("./audios/open-door.mp3"),
+    file: require("./audios/open-door.mp4"),
   },
   {
     name: "audio_people",
-    file: require("./audios/people.mp3"),
+    file: require("./audios/people.mp4"),
   },
   {
     name: "audio_sad",
-    file: require("./audios/sad.mp3"),
+    file: require("./audios/sad.mp4"),
   },
 ];
 function LoaderParent(props) {
