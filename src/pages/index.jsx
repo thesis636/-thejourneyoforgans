@@ -138,22 +138,25 @@ export default function AllPage({ videos, audios }) {
         element={
           <div className="max-w-[515px] h-full mx-auto relative">
             {audioBGPlay && (
-              <video
-                controls
+              <audio
+                ref={audioBGEl}
                 autoPlay
                 loop
                 playsInline
-                src={audios.find((audio) => audio.name === "audio_bg").urlBlob}
-                style={{
-                  display: "none",
+                onPlaying={(event) => {
+                  console.log("onPlaying");
                 }}
-              ></video>
+                src={audios.find((audio) => audio.name === "audio_bg").urlBlob}
+              ></audio>
             )}
             {audioAlarmPlay && (
-              <video
-                controls
+              <audio
                 ref={audioAlarmEl}
                 autoPlay
+                playsInline
+                onPlaying={(event) => {
+                  console.log("onPlaying");
+                }}
                 onCanPlay={(event) => {
                   setTimeout(() => {
                     setAudioAlarmPlay(false);
@@ -162,17 +165,16 @@ export default function AllPage({ videos, audios }) {
                 src={
                   audios.find((audio) => audio.name === "audio_alarm").urlBlob
                 }
-                style={{
-                  display: "none",
-                }}
-                playsInline
-              ></video>
+              ></audio>
             )}
             {audioOpenDoorPlay && (
-              <video
-                controls
+              <audio
                 ref={audioOpenDoorEl}
                 autoPlay
+                playsInline
+                onPlaying={(event) => {
+                  console.log("onPlaying");
+                }}
                 onCanPlay={(event) => {
                   setTimeout(() => {
                     setAudioOpenDoorPlay(false);
@@ -182,34 +184,32 @@ export default function AllPage({ videos, audios }) {
                   audios.find((audio) => audio.name === "audio_openDoor")
                     .urlBlob
                 }
-                style={{
-                  display: "none",
-                }}
-                playsInline
-              ></video>
+              ></audio>
             )}
             {audioBTSPlay && (
-              <video
-                controls
+              <audio
                 ref={audioBTSEl}
                 autoPlay
+                playsInline
+                onPlaying={(event) => {
+                  console.log("onPlaying");
+                }}
                 onCanPlay={(event) => {
                   setTimeout(() => {
                     setAudioBTSPlay(false);
                   }, event.target.duration * 1000);
                 }}
                 src={audios.find((audio) => audio.name === "audio_bts").urlBlob}
-                style={{
-                  display: "none",
-                }}
-                playsInline
-              ></video>
+              ></audio>
             )}
             {audioMotorcyclePlay && (
-              <video
-                controls
+              <audio
                 ref={audioMotorcycleEl}
                 autoPlay
+                playsInline
+                onPlaying={(event) => {
+                  console.log("onPlaying");
+                }}
                 onCanPlay={(event) => {
                   setTimeout(() => {
                     setAudioMotorcyclePlay(false);
@@ -219,17 +219,16 @@ export default function AllPage({ videos, audios }) {
                   audios.find((audio) => audio.name === "audio_motorcycle")
                     .urlBlob
                 }
-                style={{
-                  display: "none",
-                }}
-                playsInline
-              ></video>
+              ></audio>
             )}
             {audioHitByCarPlay && (
-              <video
-                controls
+              <audio
                 ref={audioHitByCarEl}
                 autoPlay
+                playsInline
+                onPlaying={(event) => {
+                  console.log("onPlaying");
+                }}
                 onCanPlay={(event) => {
                   setTimeout(() => {
                     setAudioHitByCarPlay(false);
@@ -239,69 +238,64 @@ export default function AllPage({ videos, audios }) {
                   audios.find((audio) => audio.name === "audio_hitByCar")
                     .urlBlob
                 }
-                style={{
-                  display: "none",
-                }}
-                playsInline
-              ></video>
+              ></audio>
             )}
             {audioCarsPlay && (
-              <video
-                controls
+              <audio
                 ref={audioCarsEl}
                 autoPlay
                 loop
+                playsInline
+                onPlaying={(event) => {
+                  console.log("onPlaying");
+                }}
                 src={
                   audios.find((audio) => audio.name === "audio_cars").urlBlob
                 }
                 style={{
                   display: "none",
                 }}
-                playsInline
-              ></video>
+              ></audio>
             )}
             {audioAmbuPlay && (
-              <video
-                controls
+              <audio
                 ref={audioAmbuEl}
                 autoPlay
                 loop
+                playsInline
+                onPlaying={(event) => {
+                  console.log("onPlaying");
+                }}
                 src={
                   audios.find((audio) => audio.name === "audio_ambu").urlBlob
                 }
-                style={{
-                  display: "none",
-                }}
-                playsInline
-              ></video>
+              ></audio>
             )}
             {audioPeoplePlay && (
-              <video
-                controls
+              <audio
                 ref={audioPeopleEl}
                 autoPlay
                 loop
+                playsInline
+                onPlaying={(event) => {
+                  console.log("onPlaying");
+                }}
                 src={
                   audios.find((audio) => audio.name === "audio_people").urlBlob
                 }
-                style={{
-                  display: "none",
-                }}
-                playsInline
-              ></video>
+              ></audio>
             )}
             {audioSadPlay && (
-              <video
-                controls
+              <audio
                 ref={audioSadEl}
                 autoPlay
                 loop
-                src={audios.find((audio) => audio.name === "audio_sad").urlBlob}
-                style={{
-                  display: "none",
-                }}
                 playsInline
-              ></video>
+                onPlaying={(event) => {
+                  console.log("onPlaying");
+                }}
+                src={audios.find((audio) => audio.name === "audio_sad").urlBlob}
+              ></audio>
             )}
             <Outlet></Outlet>
           </div>
