@@ -131,6 +131,11 @@ export default function AllPage({ videos, audios }) {
     }
   }, [audioSadPlay]);
 
+  function playAudio() { 
+    audioBGEl.current.play();
+  } 
+  
+
   return (
     <Routes>
       <Route
