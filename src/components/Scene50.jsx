@@ -4,7 +4,7 @@ const Scene50 = React.forwardRef((props, ref) => {
   return (
     <p
       ref={ref}
-      className="centered-paragraph text-white top-20"
+      className="centered-paragraph text-white top-[25%]"
       style={{ opacity: 0 }}
     >
       เพราะแต่ละอวัยวะมีระยะเวลา

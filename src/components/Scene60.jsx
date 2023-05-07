@@ -4,7 +4,7 @@ const Scene60 = React.forwardRef((props, ref) => {
   return (
     <p
       ref={ref}
-      className="centered-paragraph text-black top-32"
+      className="centered-paragraph text-black top-[23%]"
       style={{ opacity: 0 }}
     >
       ดูนั่นสิ

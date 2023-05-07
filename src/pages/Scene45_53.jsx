@@ -11,7 +11,7 @@ import Scene51 from "../components/Scene51";
 import Scene52 from "../components/Scene52";
 import Scene53 from "../components/Scene53";
 
-export default function Scene45_53Page({ getVideos, setAudioAmbuPlayFunc }) {
+export default function Scene45_53Page({ getVideos }) {
   const [scene, setScene] = React.useState("45");
   const [actionClick, setActionClick] = React.useState(false);
 
@@ -87,7 +87,6 @@ export default function Scene45_53Page({ getVideos, setAudioAmbuPlayFunc }) {
       containerEl.current.style.animation =
         "2s ease-in 0s 1 normal both running bgFadeIn";
       setActionClick(true);
-      setAudioAmbuPlayFunc(true);
     }
   }, [scene]);
 
@@ -256,7 +255,6 @@ export default function Scene45_53Page({ getVideos, setAudioAmbuPlayFunc }) {
             containerEl.current.style.animation =
               "2s ease-in 2s 1 normal both running bgFadeOut";
             setTimeout(() => {
-              setAudioAmbuPlayFunc(false);
               setTimeout(() => {
                 navigate(`/scene54-55`);
               }, 2500);

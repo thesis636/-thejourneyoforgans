@@ -4,7 +4,7 @@ const Scene35 = React.forwardRef((props, ref) => {
   return (
     <p
       ref={ref}
-      className="centered-paragraph top-[12.5%]"
+      className="centered-paragraph top-18"
       style={{ opacity: 0 }}
     >
       หลังจากเธอเสียชีวิต

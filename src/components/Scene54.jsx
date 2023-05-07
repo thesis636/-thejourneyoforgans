@@ -4,7 +4,7 @@ const Scene54 = React.forwardRef((props, ref) => {
   return (
     <p
       ref={ref}
-      className="centered-paragraph text-black top-10"
+      className="centered-paragraph text-black top-[15%]"
       style={{ opacity: 0 }}
     >
       ขั้นตอนนี้แพทย์จะผ่าตัด

@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 import Scene5 from "../components/Scene5";
 
-export default function Scene4_5Page({ getVideos, setAudioPlayFunc }) {
+export default function Scene4_5Page({ getVideos }) {
   const [scene, setScene] = React.useState(4);
   const [actionClick, setActionClick] = React.useState(false);
 
@@ -18,7 +18,6 @@ export default function Scene4_5Page({ getVideos, setAudioPlayFunc }) {
   React.useEffect(() => {
     containerEl.current.style.animation =
       "2s ease-in 0s 1 normal both running bgFadeIn";
-    setAudioPlayFunc(true);
   }, []);
 
   React.useEffect(() => {

@@ -7,7 +7,7 @@ const Scene80 = React.forwardRef((props, ref) => {
   return (
     <p
       ref={ref}
-      className="centered-paragraph text-black top-56"
+      className="centered-paragraph text-black top-[34%]"
       style={{ opacity: 0 }}
     >
       พอถึงเวลาจริงๆ {question6.answer ? question6.answer : "[name]"}

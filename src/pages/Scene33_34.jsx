@@ -5,11 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import Scene33 from "../components/Scene33";
 import Scene34 from "../components/Scene34";
 
-export default function Scene33_34Page({
-  getVideos,
-  setAudioBGPlayFunc,
-  setAudioSadPlayFunc,
-}) {
+export default function Scene33_34Page({ getVideos }) {
   const [scene, setScene] = React.useState("33");
   const [actionClick, setActionClick] = React.useState(false);
   const [message, setMessage] = React.useState("");
@@ -27,8 +23,6 @@ export default function Scene33_34Page({
     containerEl.current.style.animation =
       "2s ease-in 0s 1 normal both running bgFadeIn";
     setActionClick(true);
-    setAudioBGPlayFunc(true);
-    setAudioSadPlayFunc(false);
   }, []);
 
   React.useEffect(() => {

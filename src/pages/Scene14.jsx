@@ -2,7 +2,7 @@ import * as React from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import Scene14 from "../components/Scene14";
 
-export default function Scene14Page({ setAudioSadPlayFunc }) {
+export default function Scene14Page() {
   const [scene, setScene] = React.useState("14");
   const [actionClick, setActionClick] = React.useState(false);
 
@@ -14,7 +14,6 @@ export default function Scene14Page({ setAudioSadPlayFunc }) {
   React.useEffect(() => {
     containerEl.current.style.animation =
       "2s ease-in 0s 1 normal both running bgFadeIn";
-    setAudioSadPlayFunc(true);
   }, []);
 
   React.useEffect(() => {

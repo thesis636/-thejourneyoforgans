@@ -4,7 +4,7 @@ const Scene44 = React.forwardRef((props, ref) => {
   return (
     <p
       ref={ref}
-      className="centered-paragraph text-white top-20"
+      className="centered-paragraph text-white top-[15%]"
       style={{ opacity: 0 }}
     >
       แต่ไม่เป็นไรนะ

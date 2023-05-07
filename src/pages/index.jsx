@@ -29,137 +29,7 @@ import Scene82_83Page from "./Scene82_83";
 import Scene84_85Page from "./Scene84_85";
 
 export default function AllPage({ videos, audios }) {
-  const [audioBGPlay, setAudioBGPlay] = React.useState(false);
-  const [audioAlarmPlay, setAudioAlarmPlay] = React.useState(false);
-  const [audioOpenDoorPlay, setAudioOpenDoorPlay] = React.useState(false);
-  const [audioBTSPlay, setAudioBTSPlay] = React.useState(false);
-  const [audioMotorcyclePlay, setAudioMotorcyclePlay] = React.useState(false);
-  const [audioHitByCarPlay, setAudioHitByCarPlay] = React.useState(false);
-  const [audioCarsPlay, setAudioCarsPlay] = React.useState(false);
-  const [audioAmbuPlay, setAudioAmbuPlay] = React.useState(false);
-  const [audioPeoplePlay, setAudioPeoplePlay] = React.useState(false);
-  const [audioSadPlay, setAudioSadPlay] = React.useState(false);
-
-  const audioBGIOSEl = React.useRef(null);
-  const audioAlarmIOSEl = React.useRef(null);
-  const audioOpenDoorIOSEl = React.useRef(null);
-  const audioBTSIOSEl = React.useRef(null);
-  const audioMotorcycleIOSEl = React.useRef(null);
-  const audioHitByCarIOSEl = React.useRef(null);
-  const audioCarsIOSEl = React.useRef(null);
-  const audioAmbuIOSEl = React.useRef(null);
-  const audioPeopleIOSEl = React.useRef(null);
-  const audioSadIOSEl = React.useRef(null);
-
   const audioBGEl = React.useRef(null);
-  const audioAlarmEl = React.useRef(null);
-  const audioOpenDoorEl = React.useRef(null);
-  const audioBTSEl = React.useRef(null);
-  const audioMotorcycleEl = React.useRef(null);
-  const audioHitByCarEl = React.useRef(null);
-  const audioCarsEl = React.useRef(null);
-  const audioAmbuEl = React.useRef(null);
-  const audioPeopleEl = React.useRef(null);
-  const audioSadEl = React.useRef(null);
-
-  function iOS() {
-    return (
-      [
-        "iPad Simulator",
-        "iPhone Simulator",
-        "iPod Simulator",
-        "iPad",
-        "iPhone",
-        "iPod",
-      ].includes(navigator.platform) ||
-      // iPad on iOS 13 detection
-      (navigator.userAgent.includes("Mac") && "ontouchend" in document)
-    );
-  }
-
-  React.useEffect(() => {
-    if (audioBGEl.current) {
-      if (audioBGPlay) {
-        audioBGEl.current.play();
-      }
-    }
-  }, [audioBGPlay]);
-
-  React.useEffect(() => {
-    if (audioAlarmEl.current) {
-      if (audioAlarmPlay) {
-        audioAlarmEl.current.play();
-      }
-    }
-  }, [audioAlarmPlay]);
-
-  React.useEffect(() => {
-    if (audioOpenDoorEl.current) {
-      if (audioOpenDoorPlay) {
-        audioOpenDoorEl.current.play();
-      }
-    }
-  }, [audioOpenDoorPlay]);
-
-  React.useEffect(() => {
-    if (audioBTSEl.current) {
-      if (audioBTSPlay) {
-        audioBTSEl.current.play();
-      }
-    }
-  }, [audioBTSPlay]);
-
-  React.useEffect(() => {
-    if (audioMotorcycleEl.current) {
-      if (audioMotorcyclePlay) {
-        audioMotorcycleEl.current.play();
-      }
-    }
-  }, [audioMotorcyclePlay]);
-
-  React.useEffect(() => {
-    if (audioHitByCarEl.current) {
-      if (audioHitByCarPlay) {
-        audioHitByCarEl.current.play();
-      }
-    }
-  }, [audioHitByCarPlay]);
-
-  React.useEffect(() => {
-    if (audioCarsEl.current) {
-      if (audioCarsPlay) {
-        audioCarsEl.current.play();
-      }
-    }
-  }, [audioCarsPlay]);
-
-  React.useEffect(() => {
-    if (audioAmbuEl.current) {
-      if (audioAmbuPlay) {
-        audioAmbuEl.current.play();
-      }
-    }
-  }, [audioAmbuPlay]);
-
-  React.useEffect(() => {
-    if (audioPeopleEl.current) {
-      if (audioPeoplePlay) {
-        audioPeopleEl.current.play();
-      }
-    }
-  }, [audioPeoplePlay]);
-
-  React.useEffect(() => {
-    if (audioSadEl.current) {
-      if (audioSadPlay) {
-        audioSadEl.current.play();
-      }
-    }
-  }, [audioSadPlay]);
-
-  function playAudio() {
-    audioBGEl.current.play();
-  }
 
   return (
     <Routes>
@@ -167,195 +37,13 @@ export default function AllPage({ videos, audios }) {
         path="/"
         element={
           <div className="max-w-[515px] h-full mx-auto relative">
-            {/* IOS */}
-            {iOS() && (
-              <React.Fragment>
-                <audio
-                  // controls={iOS()}
-                  ref={audioBGIOSEl}
-                  autoPlay
-                  loop
-                  playsInline
-                  onPlaying={(event) => {
-                    console.log("onPlaying");
-                  }}
-                  src={
-                    audios.find((audio) => audio.name === "audio_bg").urlBlob
-                  }
-                ></audio>
-              </React.Fragment>
-            )}
-            {/* Audio Andriod, PC */}
-            {audioBGPlay && (
-              <audio
-                // controls={iOS()}
-                ref={audioBGEl}
-                autoPlay
-                loop
-                playsInline
-                onPlaying={(event) => {
-                  console.log("onPlaying");
-                }}
-                src={audios.find((audio) => audio.name === "audio_bg").urlBlob}
-              ></audio>
-            )}
-            {audioAlarmPlay && (
-              <audio
-                // controls={iOS()}
-                ref={audioAlarmEl}
-                autoPlay
-                playsInline
-                onPlaying={(event) => {
-                  console.log("onPlaying");
-                }}
-                onCanPlay={(event) => {
-                  setTimeout(() => {
-                    setAudioAlarmPlay(false);
-                  }, event.target.duration * 1000);
-                }}
-                src={
-                  audios.find((audio) => audio.name === "audio_alarm").urlBlob
-                }
-              ></audio>
-            )}
-            {audioOpenDoorPlay && (
-              <audio
-                // controls={iOS()}
-                ref={audioOpenDoorEl}
-                autoPlay
-                playsInline
-                onPlaying={(event) => {
-                  console.log("onPlaying");
-                }}
-                onCanPlay={(event) => {
-                  setTimeout(() => {
-                    setAudioOpenDoorPlay(false);
-                  }, event.target.duration * 1000);
-                }}
-                src={
-                  audios.find((audio) => audio.name === "audio_openDoor")
-                    .urlBlob
-                }
-              ></audio>
-            )}
-            {audioBTSPlay && (
-              <audio
-                // controls={iOS()}
-                ref={audioBTSEl}
-                autoPlay
-                playsInline
-                onPlaying={(event) => {
-                  console.log("onPlaying");
-                }}
-                onCanPlay={(event) => {
-                  setTimeout(() => {
-                    setAudioBTSPlay(false);
-                  }, event.target.duration * 1000);
-                }}
-                src={audios.find((audio) => audio.name === "audio_bts").urlBlob}
-              ></audio>
-            )}
-            {audioMotorcyclePlay && (
-              <audio
-                // controls={iOS()}
-                ref={audioMotorcycleEl}
-                autoPlay
-                playsInline
-                onPlaying={(event) => {
-                  console.log("onPlaying");
-                }}
-                onCanPlay={(event) => {
-                  setTimeout(() => {
-                    setAudioMotorcyclePlay(false);
-                  }, event.target.duration * 1000);
-                }}
-                src={
-                  audios.find((audio) => audio.name === "audio_motorcycle")
-                    .urlBlob
-                }
-              ></audio>
-            )}
-            {audioHitByCarPlay && (
-              <audio
-                // controls={iOS()}
-                ref={audioHitByCarEl}
-                autoPlay
-                playsInline
-                onPlaying={(event) => {
-                  console.log("onPlaying");
-                }}
-                onCanPlay={(event) => {
-                  setTimeout(() => {
-                    setAudioHitByCarPlay(false);
-                  }, event.target.duration * 1000);
-                }}
-                src={
-                  audios.find((audio) => audio.name === "audio_hitByCar")
-                    .urlBlob
-                }
-              ></audio>
-            )}
-            {audioCarsPlay && (
-              <audio
-                // controls={iOS()}
-                ref={audioCarsEl}
-                autoPlay
-                loop
-                playsInline
-                onPlaying={(event) => {
-                  console.log("onPlaying");
-                }}
-                src={
-                  audios.find((audio) => audio.name === "audio_cars").urlBlob
-                }
-                style={{
-                  display: "none",
-                }}
-              ></audio>
-            )}
-            {audioAmbuPlay && (
-              <audio
-                // controls={iOS()}
-                ref={audioAmbuEl}
-                autoPlay
-                loop
-                playsInline
-                onPlaying={(event) => {
-                  console.log("onPlaying");
-                }}
-                src={
-                  audios.find((audio) => audio.name === "audio_ambu").urlBlob
-                }
-              ></audio>
-            )}
-            {audioPeoplePlay && (
-              <audio
-                // controls={iOS()}
-                ref={audioPeopleEl}
-                autoPlay
-                loop
-                playsInline
-                onPlaying={(event) => {
-                  console.log("onPlaying");
-                }}
-                src={
-                  audios.find((audio) => audio.name === "audio_people").urlBlob
-                }
-              ></audio>
-            )}
-            {audioSadPlay && (
-              <audio
-                // controls={iOS()}
-                ref={audioSadEl}
-                autoPlay
-                loop
-                playsInline
-                onPlaying={(event) => {
-                  console.log("onPlaying");
-                }}
-                src={audios.find((audio) => audio.name === "audio_sad").urlBlob}
-              ></audio>
-            )}
+            <audio
+              ref={audioBGEl}
+              loop
+              playsInline
+              src={audios.find((audio) => audio.name === "audio_bg").urlBlob}
+            ></audio>
+
             <Outlet></Outlet>
           </div>
         }
@@ -364,65 +52,30 @@ export default function AllPage({ videos, audios }) {
           index
           element={
             <Scene1_3Page
-              audioBGClickOnPlay={() => {
-                iOS() && audioBGIOSEl.current["play"]();
+              onPlay={() => {
+                audioBGEl.current["play"]();
               }}
               getVideos={videos}
-              setAudioPlayFunc={(val) => setAudioBGPlay(val)}
             ></Scene1_3Page>
           }
         />
         <Route
           path="scene4-5"
-          element={
-            <Scene4_5Page
-              getVideos={videos}
-              setAudioPlayFunc={(val) => setAudioAlarmPlay(val)}
-            ></Scene4_5Page>
-          }
+          element={<Scene4_5Page getVideos={videos}></Scene4_5Page>}
         />
         <Route
           path="scene6-7"
-          element={
-            <Scene6_7Page
-              getVideos={videos}
-              setAudioPlayFunc={(val) => {
-                setAudioOpenDoorPlay(val);
-              }}
-            ></Scene6_7Page>
-          }
+          element={<Scene6_7Page getVideos={videos}></Scene6_7Page>}
         />
         <Route
           path="scene8-11"
-          element={
-            <Scene8_11Page
-              setAudioBTSPlayFunc={(val) => setAudioBTSPlay(val)}
-              setAudioMotorcyclePlayFunc={(val) => setAudioMotorcyclePlay(val)}
-              setAudioCarsPlayFunc={(val) => setAudioCarsPlay(val)}
-              setAudioHitByCarPlayFunc={(val) => setAudioHitByCarPlay(val)}
-              setAudioBackgroundPlayFunc={(val) => setAudioBGPlay(val)}
-              getVideos={videos}
-            ></Scene8_11Page>
-          }
+          element={<Scene8_11Page getVideos={videos}></Scene8_11Page>}
         />
         <Route
           path="scene12-13"
-          element={
-            <Scene12_13Page
-              setAudioAmbuPlayFunc={(val) => setAudioAmbuPlay(val)}
-              setAudioPeoplePlayFunc={(val) => setAudioPeoplePlay(val)}
-              getVideos={videos}
-            ></Scene12_13Page>
-          }
+          element={<Scene12_13Page getVideos={videos}></Scene12_13Page>}
         />
-        <Route
-          path="scene14"
-          element={
-            <Scene14Page
-              setAudioSadPlayFunc={(val) => setAudioSadPlay(val)}
-            ></Scene14Page>
-          }
-        />
+        <Route path="scene14" element={<Scene14Page></Scene14Page>} />
         <Route
           path="scene15-23"
           element={<Scene15_23Page getVideos={videos}></Scene15_23Page>}
@@ -441,13 +94,7 @@ export default function AllPage({ videos, audios }) {
         />
         <Route
           path="scene33-34"
-          element={
-            <Scene33_34Page
-              getVideos={videos}
-              setAudioBGPlayFunc={(val) => setAudioBGPlay(val)}
-              setAudioSadPlayFunc={(val) => setAudioSadPlay(val)}
-            ></Scene33_34Page>
-          }
+          element={<Scene33_34Page getVideos={videos}></Scene33_34Page>}
         />
         <Route
           path="scene35-38"
@@ -463,12 +110,7 @@ export default function AllPage({ videos, audios }) {
         />
         <Route
           path="scene45-53"
-          element={
-            <Scene45_53Page
-              getVideos={videos}
-              setAudioAmbuPlayFunc={(val) => setAudioAmbuPlay(val)}
-            ></Scene45_53Page>
-          }
+          element={<Scene45_53Page getVideos={videos}></Scene45_53Page>}
         />
         <Route
           path="scene54-55"

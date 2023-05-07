@@ -4,18 +4,10 @@ import { useSelector, useDispatch } from "react-redux";
 
 import Scene10 from "../components/Scene10";
 
-export default function Scene8_11Page({
-  getVideos,
-  setAudioBTSPlayFunc,
-  setAudioMotorcyclePlayFunc,
-  setAudioCarsPlayFunc,
-  setAudioHitByCarPlayFunc,
-  setAudioBackgroundPlayFunc,
-  audioBGEl,
-}) {
+export default function Scene8_11Page({ getVideos }) {
   const [searchParams, setSearchParams] = useSearchParams();
   const [scene, setScene] = React.useState(searchParams.get("travelMethod"));
-  const [classAction, setClassAction] = React.useState(true);
+  // const [classAction, setClassAction] = React.useState(true);
   const [actionClick, setActionClick] = React.useState(false);
 
   const navigate = useNavigate();
@@ -39,14 +31,12 @@ export default function Scene8_11Page({
         scene10El.current.style.animation =
           "1s ease-in 2s 1 normal both running fadeIn";
         setActionClick(true);
-        setAudioCarsPlayFunc(true);
       }
     }
 
     if (scene === "11") {
       containerEl.current.style.animation =
         "2s ease-in 0s 1 normal both running bgFadeIn";
-      setAudioBackgroundPlayFunc(false);
     }
   }, [scene]);
 
@@ -72,7 +62,6 @@ export default function Scene8_11Page({
                 setTimeout(() => {
                   setTimeout(() => {
                     setScene((scene) => scene + 1);
-                    setAudioCarsPlayFunc(false);
                     setTimeout(() => {
                       navigate(`/scene8-11`);
                       setScene("11");
@@ -94,7 +83,6 @@ export default function Scene8_11Page({
           playsInline
           muted
           onCanPlay={(event) => {
-            setAudioBTSPlayFunc(true);
             setTimeout(() => {
               setScene("9-10");
             }, event.target.duration * 1000);
@@ -114,7 +102,6 @@ export default function Scene8_11Page({
           playsInline
           muted
           onCanPlay={(event) => {
-            setAudioMotorcyclePlayFunc(true);
             setTimeout(() => {
               setScene("9-10");
             }, event.target.duration * 1000);
@@ -160,14 +147,11 @@ export default function Scene8_11Page({
           playsInline
           muted
           onCanPlay={(event) => {
-            setAudioHitByCarPlayFunc(true);
-
             setTimeout(() => {
               containerEl.current.style.animation =
                 "2s ease-in 0s 1 normal both running bgFadeOut";
               setTimeout(() => {
                 setTimeout(() => {
-                  setAudioHitByCarPlayFunc(false);
                   navigate(`/scene12-13`);
                 }, 500);
               }, 2000);

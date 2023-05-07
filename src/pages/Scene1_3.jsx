@@ -6,12 +6,7 @@ import Scene1 from "../components/Scene1";
 import Scene2 from "../components/Scene2";
 import Scene3 from "../components/Scene3";
 
-export default function Scene1_3Page({
-  getVideos,
-  setAudioPlayFunc,
-  audioBGEl,
-  audioBGClickOnPlay,
-}) {
+export default function Scene1_3Page({ getVideos,onPlay }) {
   const [scene, setScene] = React.useState(1);
   const [actionClick, setActionClick] = React.useState(false);
   const [dataScene3, setDataScene3] = React.useState({
@@ -31,7 +26,7 @@ export default function Scene1_3Page({
   const scene3El = React.useRef(null);
 
   function onClickScreen() {
-    audioBGClickOnPlay();
+    onPlay()
     if (scene === 1) {
       if (actionClick) {
         setActionClick(false);
@@ -89,7 +84,6 @@ export default function Scene1_3Page({
     if (scene2El.current) {
       scene2El.current.style.animation =
         "1s ease-in 0s 1 normal both running fadeIn";
-      setAudioPlayFunc(true);
     }
   }, [scene2El.current]);
 

@@ -1,11 +1,7 @@
 import * as React from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 
-export default function Scene12_13Page({
-  getVideos,
-  setAudioAmbuPlayFunc,
-  setAudioPeoplePlayFunc,
-}) {
+export default function Scene12_13Page({ getVideos }) {
   const [scene, setScene] = React.useState("12-13");
 
   const navigate = useNavigate();
@@ -16,8 +12,6 @@ export default function Scene12_13Page({
   React.useEffect(() => {
     containerEl.current.style.animation =
       "2s ease-in 0s 1 normal both running bgFadeIn";
-    setAudioAmbuPlayFunc(true);
-    setAudioPeoplePlayFunc(true);
   }, []);
 
   return (
@@ -37,8 +31,6 @@ export default function Scene12_13Page({
             }, event.target.duration * 500);
             setTimeout(() => {
               navigate(`/scene14`);
-              setAudioAmbuPlayFunc(false);
-              setAudioPeoplePlayFunc(false);
             }, event.target.duration * 1000);
           }}
         ></video>
