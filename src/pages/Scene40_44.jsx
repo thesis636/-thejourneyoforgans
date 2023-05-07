@@ -8,7 +8,7 @@ import Scene42 from "../components/Scene42";
 import Scene43 from "../components/Scene43";
 import Scene44 from "../components/Scene44";
 
-export default function Scene40_44Page({ getVideos }) {
+export default function Scene40_44Page({ getVideos,audioAmbuIOSOnClick }) {
   const [scene, setScene] = React.useState("40");
   const [actionClick, setActionClick] = React.useState(false);
 
@@ -147,6 +147,7 @@ export default function Scene40_44Page({ getVideos }) {
       {scene === "41" && <Scene41 ref={scene41El}></Scene41>}
       {scene === "42" && (
         <Scene42
+        onClick={()=>{audioAmbuIOSOnClick()}}
           ref={scene42El}
           onNextScene={(event) => {
             if (scene === "42") {

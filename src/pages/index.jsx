@@ -40,6 +40,17 @@ export default function AllPage({ videos, audios }) {
   const [audioPeoplePlay, setAudioPeoplePlay] = React.useState(false);
   const [audioSadPlay, setAudioSadPlay] = React.useState(false);
 
+  const audioBGIOSEl = React.useRef(null);
+  const audioAlarmIOSEl = React.useRef(null);
+  const audioOpenDoorIOSEl = React.useRef(null);
+  const audioBTSIOSEl = React.useRef(null);
+  const audioMotorcycleIOSEl = React.useRef(null);
+  const audioHitByCarIOSEl = React.useRef(null);
+  const audioCarsIOSEl = React.useRef(null);
+  const audioAmbuIOSEl = React.useRef(null);
+  const audioPeopleIOSEl = React.useRef(null);
+  const audioSadIOSEl = React.useRef(null);
+
   const audioBGEl = React.useRef(null);
   const audioAlarmEl = React.useRef(null);
   const audioOpenDoorEl = React.useRef(null);
@@ -50,6 +61,21 @@ export default function AllPage({ videos, audios }) {
   const audioAmbuEl = React.useRef(null);
   const audioPeopleEl = React.useRef(null);
   const audioSadEl = React.useRef(null);
+
+  function iOS() {
+    return (
+      [
+        "iPad Simulator",
+        "iPhone Simulator",
+        "iPod Simulator",
+        "iPad",
+        "iPhone",
+        "iPod",
+      ].includes(navigator.platform) ||
+      // iPad on iOS 13 detection
+      (navigator.userAgent.includes("Mac") && "ontouchend" in document)
+    );
+  }
 
   React.useEffect(() => {
     if (audioBGEl.current) {
@@ -131,10 +157,9 @@ export default function AllPage({ videos, audios }) {
     }
   }, [audioSadPlay]);
 
-  function playAudio() { 
+  function playAudio() {
     audioBGEl.current.play();
-  } 
-  
+  }
 
   return (
     <Routes>
@@ -142,8 +167,181 @@ export default function AllPage({ videos, audios }) {
         path="/"
         element={
           <div className="max-w-[515px] h-full mx-auto relative">
+            {/* IOS */}
+            {iOS() && (
+              <React.Fragment>
+                <audio
+                  // controls={iOS()}
+                  ref={audioBGIOSEl}
+                  autoPlay
+                  loop
+                  playsInline
+                  onPlaying={(event) => {
+                    console.log("onPlaying");
+                  }}
+                  src={
+                    audios.find((audio) => audio.name === "audio_bg").urlBlob
+                  }
+                ></audio>
+
+                <audio
+                  // controls={iOS()}
+                  ref={audioAlarmIOSEl}
+                  autoPlay
+                  playsInline
+                  onPlaying={(event) => {
+                    console.log("onPlaying");
+                  }}
+                  onCanPlay={(event) => {
+                    setTimeout(() => {
+                      setAudioAlarmPlay(false);
+                    }, event.target.duration * 1000);
+                  }}
+                  src={
+                    audios.find((audio) => audio.name === "audio_alarm").urlBlob
+                  }
+                ></audio>
+
+                <audio
+                  // controls={iOS()}
+                  ref={audioOpenDoorIOSEl}
+                  autoPlay
+                  playsInline
+                  onPlaying={(event) => {
+                    console.log("onPlaying");
+                  }}
+                  onCanPlay={(event) => {
+                    setTimeout(() => {
+                      setAudioOpenDoorPlay(false);
+                    }, event.target.duration * 1000);
+                  }}
+                  src={
+                    audios.find((audio) => audio.name === "audio_openDoor")
+                      .urlBlob
+                  }
+                ></audio>
+
+                <audio
+                  // controls={iOS()}
+                  ref={audioBTSIOSEl}
+                  autoPlay
+                  playsInline
+                  onPlaying={(event) => {
+                    console.log("onPlaying");
+                  }}
+                  onCanPlay={(event) => {
+                    setTimeout(() => {
+                      setAudioBTSPlay(false);
+                    }, event.target.duration * 1000);
+                  }}
+                  src={
+                    audios.find((audio) => audio.name === "audio_bts").urlBlob
+                  }
+                ></audio>
+
+                <audio
+                  // controls={iOS()}
+                  ref={audioMotorcycleIOSEl}
+                  autoPlay
+                  playsInline
+                  onPlaying={(event) => {
+                    console.log("onPlaying");
+                  }}
+                  onCanPlay={(event) => {
+                    setTimeout(() => {
+                      setAudioMotorcyclePlay(false);
+                    }, event.target.duration * 1000);
+                  }}
+                  src={
+                    audios.find((audio) => audio.name === "audio_motorcycle")
+                      .urlBlob
+                  }
+                ></audio>
+
+                <audio
+                  // controls={iOS()}
+                  ref={audioHitByCarIOSEl}
+                  autoPlay
+                  playsInline
+                  onPlaying={(event) => {
+                    console.log("onPlaying");
+                  }}
+                  onCanPlay={(event) => {
+                    setTimeout(() => {
+                      setAudioHitByCarPlay(false);
+                    }, event.target.duration * 1000);
+                  }}
+                  src={
+                    audios.find((audio) => audio.name === "audio_hitByCar")
+                      .urlBlob
+                  }
+                ></audio>
+
+                <audio
+                  // controls={iOS()}
+                  ref={audioCarsIOSEl}
+                  autoPlay
+                  loop
+                  playsInline
+                  onPlaying={(event) => {
+                    console.log("onPlaying");
+                  }}
+                  src={
+                    audios.find((audio) => audio.name === "audio_cars").urlBlob
+                  }
+                  style={{
+                    display: "none",
+                  }}
+                ></audio>
+
+                <audio
+                  // controls={iOS()}
+                  ref={audioAmbuIOSEl}
+                  autoPlay
+                  loop
+                  playsInline
+                  onPlaying={(event) => {
+                    console.log("onPlaying");
+                  }}
+                  src={
+                    audios.find((audio) => audio.name === "audio_ambu").urlBlob
+                  }
+                ></audio>
+
+                <audio
+                  // controls={iOS()}
+                  ref={audioPeopleIOSEl}
+                  autoPlay
+                  loop
+                  playsInline
+                  onPlaying={(event) => {
+                    console.log("onPlaying");
+                  }}
+                  src={
+                    audios.find((audio) => audio.name === "audio_people")
+                      .urlBlob
+                  }
+                ></audio>
+
+                <audio
+                  // controls={iOS()}
+                  ref={audioSadIOSEl}
+                  autoPlay
+                  loop
+                  playsInline
+                  onPlaying={(event) => {
+                    console.log("onPlaying");
+                  }}
+                  src={
+                    audios.find((audio) => audio.name === "audio_sad").urlBlob
+                  }
+                ></audio>
+              </React.Fragment>
+            )}
+            {/* Audio Andriod, PC */}
             {audioBGPlay && (
               <audio
+                // controls={iOS()}
                 ref={audioBGEl}
                 autoPlay
                 loop
@@ -156,6 +354,7 @@ export default function AllPage({ videos, audios }) {
             )}
             {audioAlarmPlay && (
               <audio
+                // controls={iOS()}
                 ref={audioAlarmEl}
                 autoPlay
                 playsInline
@@ -174,6 +373,7 @@ export default function AllPage({ videos, audios }) {
             )}
             {audioOpenDoorPlay && (
               <audio
+                // controls={iOS()}
                 ref={audioOpenDoorEl}
                 autoPlay
                 playsInline
@@ -193,6 +393,7 @@ export default function AllPage({ videos, audios }) {
             )}
             {audioBTSPlay && (
               <audio
+                // controls={iOS()}
                 ref={audioBTSEl}
                 autoPlay
                 playsInline
@@ -209,6 +410,7 @@ export default function AllPage({ videos, audios }) {
             )}
             {audioMotorcyclePlay && (
               <audio
+                // controls={iOS()}
                 ref={audioMotorcycleEl}
                 autoPlay
                 playsInline
@@ -228,6 +430,7 @@ export default function AllPage({ videos, audios }) {
             )}
             {audioHitByCarPlay && (
               <audio
+                // controls={iOS()}
                 ref={audioHitByCarEl}
                 autoPlay
                 playsInline
@@ -247,6 +450,7 @@ export default function AllPage({ videos, audios }) {
             )}
             {audioCarsPlay && (
               <audio
+                // controls={iOS()}
                 ref={audioCarsEl}
                 autoPlay
                 loop
@@ -264,6 +468,7 @@ export default function AllPage({ videos, audios }) {
             )}
             {audioAmbuPlay && (
               <audio
+                // controls={iOS()}
                 ref={audioAmbuEl}
                 autoPlay
                 loop
@@ -278,6 +483,7 @@ export default function AllPage({ videos, audios }) {
             )}
             {audioPeoplePlay && (
               <audio
+                // controls={iOS()}
                 ref={audioPeopleEl}
                 autoPlay
                 loop
@@ -292,6 +498,7 @@ export default function AllPage({ videos, audios }) {
             )}
             {audioSadPlay && (
               <audio
+                // controls={iOS()}
                 ref={audioSadEl}
                 autoPlay
                 loop
@@ -310,6 +517,12 @@ export default function AllPage({ videos, audios }) {
           index
           element={
             <Scene1_3Page
+              audioBGClickOnPlay={() => {
+                iOS() && audioBGIOSEl.current["play"]();
+              }}
+              audioAlarmClickOnPlay={() => {
+                iOS() && audioAlarmIOSEl.current["play"]();
+              }}
               getVideos={videos}
               setAudioPlayFunc={(val) => setAudioBGPlay(val)}
             ></Scene1_3Page>
@@ -321,6 +534,9 @@ export default function AllPage({ videos, audios }) {
             <Scene4_5Page
               getVideos={videos}
               setAudioPlayFunc={(val) => setAudioAlarmPlay(val)}
+              audioOpenDoorIOSOnClick={() => {
+                iOS() && audioOpenDoorIOSEl.current["play"]();
+              }}
             ></Scene4_5Page>
           }
         />
@@ -328,8 +544,19 @@ export default function AllPage({ videos, audios }) {
           path="scene6-7"
           element={
             <Scene6_7Page
+              audioBTSIOSOnClick={() => {
+                iOS() && audioBTSIOSEl.current["play"]();
+              }}
+              audioMotorcycleSIOSOnClick={() => {
+                iOS() && audioMotorcycleIOSEl.current["play"]();
+              }}
+              audioCarsSIOSOnClick={() => {
+                iOS() && audioCarsIOSEl.current["play"]();
+              }}
               getVideos={videos}
-              setAudioPlayFunc={(val) => setAudioOpenDoorPlay(val)}
+              setAudioPlayFunc={(val) => {
+                setAudioOpenDoorPlay(val);
+              }}
             ></Scene6_7Page>
           }
         />
@@ -337,6 +564,12 @@ export default function AllPage({ videos, audios }) {
           path="scene8-11"
           element={
             <Scene8_11Page
+              audioHitByCarSIOSOnClick={() => {
+                iOS() && audioHitByCarIOSEl.current["play"]();
+              }}
+              audioBGSIOSOnClick={() => {
+                iOS() && audioBGIOSEl.current["pause"]();
+              }}
               setAudioBTSPlayFunc={(val) => setAudioBTSPlay(val)}
               setAudioMotorcyclePlayFunc={(val) => setAudioMotorcyclePlay(val)}
               setAudioCarsPlayFunc={(val) => setAudioCarsPlay(val)}
@@ -350,6 +583,12 @@ export default function AllPage({ videos, audios }) {
           path="scene12-13"
           element={
             <Scene12_13Page
+              audioPeopleIOSOnClick={() => {
+                iOS() && audioPeopleIOSEl.current["play"]();
+              }}
+              audioAmbuIOSOnClick={() => {
+                iOS() && audioAmbuIOSEl.current["play"]();
+              }}
               setAudioAmbuPlayFunc={(val) => setAudioAmbuPlay(val)}
               setAudioPeoplePlayFunc={(val) => setAudioPeoplePlay(val)}
               getVideos={videos}
@@ -360,6 +599,12 @@ export default function AllPage({ videos, audios }) {
           path="scene14"
           element={
             <Scene14Page
+            audioBGIOSOnClick={() => {
+              iOS() &&  audioBGIOSEl.current["pause"]();
+            }}
+            audioSadIOSOnClick={() => {
+              iOS() &&  audioSadIOSEl.current["play"]();
+            }}
               setAudioSadPlayFunc={(val) => setAudioSadPlay(val)}
             ></Scene14Page>
           }
@@ -384,6 +629,12 @@ export default function AllPage({ videos, audios }) {
           path="scene33-34"
           element={
             <Scene33_34Page
+            audioBGIOSOnClick={() => {
+              iOS() &&  audioBGIOSEl.current["play"]();
+            }}
+            audioSadIOSOnClick={() => {
+              iOS() &&  audioSadIOSEl.current["pause"]();
+            }}
               getVideos={videos}
               setAudioBGPlayFunc={(val) => setAudioBGPlay(val)}
               setAudioSadPlayFunc={(val) => setAudioSadPlay(val)}
@@ -400,7 +651,14 @@ export default function AllPage({ videos, audios }) {
         />
         <Route
           path="scene40-44"
-          element={<Scene40_44Page getVideos={videos}></Scene40_44Page>}
+          element={
+            <Scene40_44Page
+              getVideos={videos}
+              audioAmbuIOSOnClick={() => {
+                iOS() &&  audioAmbuIOSEl.current["play"]();
+              }}
+            ></Scene40_44Page>
+          }
         />
         <Route
           path="scene45-53"
@@ -408,6 +666,9 @@ export default function AllPage({ videos, audios }) {
             <Scene45_53Page
               getVideos={videos}
               setAudioAmbuPlayFunc={(val) => setAudioAmbuPlay(val)}
+              audioAmbuIOSOnClick={() => {
+                iOS() &&  audioAmbuIOSEl.current["play"]();
+              }}
             ></Scene45_53Page>
           }
         />

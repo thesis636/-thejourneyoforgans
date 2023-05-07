@@ -12,7 +12,7 @@ const Scene80 = React.forwardRef((props, ref) => {
     >
       พอถึงเวลาจริงๆ {question6.answer ? question6.answer : "[name]"}
       <br />
-      จับมือฉันไว้
+      เริ่มรู้สึกกลัวมั้ย?
     </p>
   );
 });

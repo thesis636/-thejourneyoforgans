@@ -4,7 +4,7 @@ const Scene46 = React.forwardRef((props, ref) => {
   return (
     <p
       ref={ref}
-      className="centered-paragraph text-white top-24"
+      className="centered-paragraph text-white top-5"
       style={{ opacity: 0 }}
     >
       เพื่อเตรียมความพร้อม

@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Scene5 = React.forwardRef((props, ref) => {
-  const { onNextScene } = props;
+  const { onNextScene,onClick } = props;
   return (
     <div
       ref={ref}
@@ -20,6 +20,7 @@ const Scene5 = React.forwardRef((props, ref) => {
         className="bg-white w-64 py-3 text-2xl shadow rounded-lg text-center"
         // to={`/scene6-7`}
         onClick={() => {
+          onClick()
           onNextScene({
             message: "ไปทำงาน",
           });
@@ -31,6 +32,7 @@ const Scene5 = React.forwardRef((props, ref) => {
         className="bg-white w-64 py-3 text-2xl shadow rounded-lg text-center"
         // to={`/scene6-7`}
         onClick={() => {
+          onClick()
           onNextScene({
             message: "ไปเรียน",
           });
@@ -42,6 +44,7 @@ const Scene5 = React.forwardRef((props, ref) => {
         className="bg-white w-64 py-3 text-2xl shadow rounded-lg text-center"
         // to={`/scene6-7`}
         onClick={() => {
+          onClick()
           onNextScene({
             message: "ไปทำธุระ",
           });

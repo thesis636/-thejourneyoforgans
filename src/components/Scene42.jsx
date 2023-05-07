@@ -1,7 +1,7 @@
 import * as React from "react";
 
 const Scene42 = React.forwardRef((props, ref) => {
-  const { onNextScene } = props;
+  const { onNextScene, onClick } = props;
   const [message, setMessage] = React.useState("");
   const [messageValidate, setMessageValidate] = React.useState(false);
 
@@ -73,6 +73,7 @@ const Scene42 = React.forwardRef((props, ref) => {
       <button
         className="text-2xl tracking-wide mt-4"
         onClick={() => {
+          onClick();
           if (message) {
             onNextScene({
               message: message,

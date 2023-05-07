@@ -2,7 +2,7 @@ import * as React from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import Scene14 from "../components/Scene14";
 
-export default function Scene14Page({ setAudioSadPlayFunc }) {
+export default function Scene14Page({ setAudioSadPlayFunc,audioBGIOSOnClick,audioSadIOSOnClick }) {
   const [scene, setScene] = React.useState("14");
   const [actionClick, setActionClick] = React.useState(false);
 
@@ -29,6 +29,8 @@ export default function Scene14Page({ setAudioSadPlayFunc }) {
       ref={containerEl}
       className="bg-black h-full grid place-items-center"
       onClick={() => {
+        audioBGIOSOnClick()
+        audioSadIOSOnClick()
         if (scene === "14") {
           if (actionClick) {
             setActionClick(false);

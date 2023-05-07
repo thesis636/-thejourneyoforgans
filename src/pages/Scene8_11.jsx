@@ -11,6 +11,9 @@ export default function Scene8_11Page({
   setAudioCarsPlayFunc,
   setAudioHitByCarPlayFunc,
   setAudioBackgroundPlayFunc,
+  audioBGEl,
+  audioHitByCarSIOSOnClick,
+  audioBGSIOSOnClick
 }) {
   const [searchParams, setSearchParams] = useSearchParams();
   const [scene, setScene] = React.useState(searchParams.get("travelMethod"));
@@ -53,6 +56,10 @@ export default function Scene8_11Page({
     <div ref={containerEl} className="h-full">
       {scene === "9-10" && (
         <Scene10
+          onClick={() => {
+            audioHitByCarSIOSOnClick();
+            audioBGSIOSOnClick();
+          }}
           ref={scene10El}
           onNextScene={(event) => {
             if (scene === "9-10") {
