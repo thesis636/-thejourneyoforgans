@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 import Scene5 from "../components/Scene5";
 
-export default function Scene4_5Page({ getVideos, setAudioPlayFunc,audioOpenDoorIOSOnClick }) {
+export default function Scene4_5Page({ getVideos, setAudioPlayFunc }) {
   const [scene, setScene] = React.useState(4);
   const [actionClick, setActionClick] = React.useState(false);
 
@@ -35,9 +35,6 @@ export default function Scene4_5Page({ getVideos, setAudioPlayFunc,audioOpenDoor
     <div ref={containerEl} className="h-full">
       {scene === 5 && (
         <Scene5
-        onClick={() => {
-          audioOpenDoorIOSOnClick()
-        }}
           ref={scene5El}
           onNextScene={(event) => {
             if (scene === 5) {

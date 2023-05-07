@@ -3,7 +3,7 @@ import React from "react";
 import projectLogo from "../images/project-logo.png";
 
 const Scene3 = React.forwardRef((props, ref) => {
-  const { onNextScene,onClick } = props;
+  const { onNextScene } = props;
   const [nickname, setNickname] = React.useState("");
   const [gender, setGender] = React.useState("male");
   const [age, setAge] = React.useState("");
@@ -145,7 +145,6 @@ const Scene3 = React.forwardRef((props, ref) => {
       <button
         className="text-2xl tracking-wide mt-8"
         onClick={() => {
-          onClick()
           // console.log({
           //   nickname: nickname,
           //   gender: gender,

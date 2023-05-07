@@ -5,8 +5,6 @@ export default function Scene12_13Page({
   getVideos,
   setAudioAmbuPlayFunc,
   setAudioPeoplePlayFunc,
-  audioPeopleIOSOnClick,
-  audioAmbuIOSOnClick,
 }) {
   const [scene, setScene] = React.useState("12-13");
 
@@ -20,8 +18,6 @@ export default function Scene12_13Page({
       "2s ease-in 0s 1 normal both running bgFadeIn";
     setAudioAmbuPlayFunc(true);
     setAudioPeoplePlayFunc(true);
-    audioPeopleIOSOnClick();
-    audioAmbuIOSOnClick();
   }, []);
 
   return (

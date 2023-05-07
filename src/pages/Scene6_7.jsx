@@ -4,13 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 import Scene7 from "../components/Scene7";
 
-export default function Scene4_5Page({
-  getVideos,
-  setAudioPlayFunc,
-  audioBTSIOSOnClick,
-  audioMotorcycleSIOSOnClick,
-  audioCarsSIOSOnClick,
-}) {
+export default function Scene4_5Page({ getVideos, setAudioPlayFunc }) {
   const [scene, setScene] = React.useState(6);
   const [classAction, setClassAction] = React.useState(true);
   const [actionClick, setActionClick] = React.useState(false);
@@ -42,15 +36,6 @@ export default function Scene4_5Page({
     <div ref={containerEl} className="h-full">
       {scene === 7 && (
         <Scene7
-          audioBTSIOSOnClick={() => {
-            audioBTSIOSOnClick();
-          }}
-          audioMotorcycleSIOSOnClick={() => {
-            audioMotorcycleSIOSOnClick();
-          }}
-          audioCarsSIOSOnClick={() => {
-            audioCarsSIOSOnClick();
-          }}
           ref={scene7El}
           onNextScene={(event) => {
             if (scene === 7) {

@@ -11,7 +11,6 @@ export default function Scene1_3Page({
   setAudioPlayFunc,
   audioBGEl,
   audioBGClickOnPlay,
-  audioAlarmClickOnPlay,
 }) {
   const [scene, setScene] = React.useState(1);
   const [actionClick, setActionClick] = React.useState(false);
@@ -107,9 +106,6 @@ export default function Scene1_3Page({
       {scene === 2 && <Scene2 ref={scene2El}></Scene2>}
       {scene === 3 && (
         <Scene3
-          onClick={() => {
-            audioAlarmClickOnPlay();
-          }}
           ref={scene3El}
           onNextScene={(event) => {
             if (scene === 3) {

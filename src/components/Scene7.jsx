@@ -2,12 +2,7 @@ import * as React from "react";
 import { Link } from "react-router-dom";
 
 const Scene7 = React.forwardRef((props, ref) => {
-  const {
-    onNextScene,
-    audioBTSIOSOnClick,
-    audioMotorcycleSIOSOnClick,
-    audioCarsSIOSOnClick,
-  } = props;
+  const { onNextScene } = props;
   return (
     <div
       ref={ref}
@@ -23,8 +18,6 @@ const Scene7 = React.forwardRef((props, ref) => {
         className="bg-white w-64 py-3 text-2xl shadow rounded-lg text-center"
         // href="/scene8-11?travelMethod=bts"
         onClick={() => {
-          audioBTSIOSOnClick();
-          audioCarsSIOSOnClick();
           onNextScene({
             travelMethod: "bts",
             message: "ไปทำงาน",
@@ -36,8 +29,6 @@ const Scene7 = React.forwardRef((props, ref) => {
       <Link
         className="bg-white w-64 py-3 text-2xl shadow rounded-lg text-center"
         onClick={() => {
-          audioMotorcycleSIOSOnClick();
-          audioCarsSIOSOnClick();
           onNextScene({
             travelMethod: "motorcycle",
             message: "วินมอเตอร์ไซค์",
@@ -49,7 +40,6 @@ const Scene7 = React.forwardRef((props, ref) => {
       <Link
         className="bg-white w-64 py-3 text-2xl shadow rounded-lg text-center"
         onClick={() => {
-          audioCarsSIOSOnClick();
           onNextScene({
             travelMethod: "walk",
             message: "เดินไป",

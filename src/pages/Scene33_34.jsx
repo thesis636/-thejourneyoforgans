@@ -9,8 +9,6 @@ export default function Scene33_34Page({
   getVideos,
   setAudioBGPlayFunc,
   setAudioSadPlayFunc,
-  audioBGIOSOnClick,
-  audioSadIOSOnClick
 }) {
   const [scene, setScene] = React.useState("33");
   const [actionClick, setActionClick] = React.useState(false);
@@ -57,8 +55,6 @@ export default function Scene33_34Page({
       ref={containerEl}
       className="h-full"
       onClick={() => {
-        audioBGIOSOnClick()
-        audioSadIOSOnClick()
         if (scene === "34") {
           if (actionClick) {
             setActionClick(false);
