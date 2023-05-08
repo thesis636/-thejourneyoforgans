@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 const Scene80 = React.forwardRef((props, ref) => {
-  const { name } = useSelector((state) => state.dataReducer);
+  const { user } = useSelector((state) => state.dataReducer);
 
   return (
     <p
@@ -10,7 +10,7 @@ const Scene80 = React.forwardRef((props, ref) => {
       className="centered-paragraph text-black top-[34%]"
       style={{ opacity: 0 }}
     >
-      พอถึงเวลาจริงๆ {name.nickname ? name.nickname : "[name]"}
+      พอถึงเวลาจริงๆ {user.nickname ? user.nickname : "[name]"}
       <br />
       เริ่มรู้สึกกลัวมั้ย?
     </p>
